@@ -9,6 +9,12 @@
       </td>
       <td><%= @book.title %></td>
       <td><%= @book.Opinion %></td>
+      <td>edit</td>
+      <td>
+        <% if @book.user == current_user %>
+          <%= link_to "Destroy", book_path(@book), method: :delete %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>
