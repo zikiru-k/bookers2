@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   # ログイン後にマイページなどのログインしたユーザーに関連するようなページ遷移を実装したい場合は、このresourceを活用して実装
   # Home画面？
   def after_sign_in_path_for(resource)
-    about_path
+    books_path
   end
-  
+
   # ログイン画面？
   def after_sign_out_path_for(resource)
     about_path

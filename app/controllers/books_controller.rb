@@ -8,10 +8,11 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     # Book detail 詳細画面に変更する
-    redirect_to book_path
+    redirect_to books_path
   end
 
   def index
+    @books = Book.all
   end
 
   def show
