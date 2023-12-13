@@ -4,7 +4,7 @@
     <tr>
       <% image_tag @book.get_image %>
       <td>
-        <%= image_tag 'no_image.jpg' %><br>
+        <%= image_tag @post_image.user.get_profile_image(100, 100) %><br>
         <%= @book.user.name %>
       </td>
       <td><%= @book.title %></td>
