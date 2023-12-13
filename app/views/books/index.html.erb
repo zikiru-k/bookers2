@@ -13,7 +13,7 @@
       <tr>
         <% image_tag book.get_image %>
         <!--画面をクリックすると個人の一覧を表示-->
-        <td><%= image_tag post_image.user.get_profile_image(100, 100) %></td>
+        <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
         <td>
           <%= link_to book_path(book.id) do %>
             <%= book.title %>
