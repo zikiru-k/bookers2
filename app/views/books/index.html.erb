@@ -1,3 +1,5 @@
+<%= render 'userinfo', user: @user, book: @book %>
+
 <h1>Books</h1>
 <table>
   <thead>
@@ -11,7 +13,6 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <% image_tag book.get_image %>
         <!--画面をクリックすると個人の一覧を表示-->
         <td><%= image_tag book.user.get_profile_image(100, 100) %></td>
         <td>

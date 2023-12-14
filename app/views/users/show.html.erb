@@ -1,19 +1,4 @@
-<h1>User info</h1>
-<table>
-  <tbody>
-    <tr>
-      <td><%= image_tag @user.get_profile_image(100, 100) %></td>
-      <td><%= @user.name %></td>
-      <td><%= @user.introduction %></td>
-    </tr>
-  </tbody>
-</table>
-<div>
-  <% if @user == current_user %>
-    <%= link_to "プロフィール編集", edit_user_path(@user) %>
-  <% end %>
-</div>
-
+<%= render '/books/userinfo', user: @user, book: @book %>
 
 <table>
   <thead>
@@ -27,7 +12,6 @@
   <tbody>
     <tr>
       <% @books.each do |book| %>
-        <% image_tag book.get_image %>
         <td><%= image_tag @user.get_profile_image(100, 100) %></td>
         <td>
           <%= link_to book_path(book.id) do %>
