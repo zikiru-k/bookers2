@@ -28,7 +28,7 @@
         </li>
       <% else %>
         <!--Home ／ About ／ Sign up ／ Log in-->
-        
+
         <li>
           <%= link_to "Sign up", new_user_registration_path %>
         </li>
@@ -37,6 +37,14 @@
         </li>
       <% end %>
     </header>
-    <%= yield %>
+
+    <main>
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
   </body>
 </html>
