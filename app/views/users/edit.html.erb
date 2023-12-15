@@ -4,7 +4,9 @@
   <div>
     <p>1 error prohibited this obj from being saved:</p>
   </div>
-  <% @user.errors.full_messages %>
+  <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
 <% end %>
 
 <%= form_with model: @user do |f| %>
@@ -17,5 +19,5 @@
   <label for="inputIntroduction">Introduction</label>
   <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction" %>
 
-  <%= f.submit 'Update Book' %>
+  <%= f.submit 'Update User' %>
 <% end %>

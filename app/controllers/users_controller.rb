@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "You have created book successfully."
-      # Book detail 詳細画面に変更する
       redirect_to book_path(@book.id)
     else
       @user = current_user
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @book = Book.new
     @books = @user.books
   end

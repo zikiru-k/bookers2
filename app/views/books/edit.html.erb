@@ -21,4 +21,10 @@
   <%= f.text_area :body, autofocus: true, id:"book_body" %>
 
   <%= f.submit 'Update Book' %>
+
+  <p>
+  <%= link_to "Show", book_path(@book.id) %>
+  |
+  <%= link_to "Back", books_path %>
+  </p>
 <% end %>
