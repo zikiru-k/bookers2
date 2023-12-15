@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_user!, except: [:top, :about]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # resourceという引数には、ログインを実行したモデルのデータ、今回の場合はつまりログインしたUserのインスタンスが格納
