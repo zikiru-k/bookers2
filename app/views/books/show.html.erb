@@ -1,11 +1,11 @@
-<%= render 'userinfo', user: @user, book: @book_new %>
+<%= render 'userinfo', user: @book.user, book: @book_new %>
 
 <h1>Book detail</h1>
 <table>
   <tbody>
     <tr>
       <td>
-        <%= link_to user_path(@user.books) do %>
+        <%= link_to user_path(@book.user) do %>
           <%= image_tag @book.user.get_profile_image(100, 100) %><br>
           <%= @book.user.name %>
         <% end %>
