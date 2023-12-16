@@ -1,62 +1,61 @@
-<% if book.errors.any? %>
-  <% if book.errors.count == 2 %>
-    <p>2 errors prohibited this obj from being saved:</p>
-  <% else %>
-    <p>1 error prohibited this obj from being saved:</p>
-  <% end %>
-  <ul>
-    <% book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <% if book.errors.any? %>
+        <% if book.errors.count == 2 %>
+          <p>2 errors prohibited this obj from being saved:</p>
+        <% else %>
+          <p>1 error prohibited this obj from being saved:</p>
+        <% end %>
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-<h1>User info</h1>
-<%= image_tag user.get_profile_image(100, 100) %>
-<table>
-  <tbody>
-    <tr></tr>
-    <tr>
-      <th>Name</th>
-      <td><%= user.name %></td>
-    </tr>
-    <tr>
-      <th>Introduction</th>
-      <td><%= user.introduction %></td>
-    </tr>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </tbody>
-</table>
+      <h1>User info</h1>
+      <%= image_tag user.get_profile_image(100, 100) %>
+      <table>
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>Name</th>
+            <td><%= user.name %></td>
+          </tr>
+          <tr>
+            <th>Introduction</th>
+            <td><%= user.introduction %></td>
+          </tr>
+          <tr>
+            <th colspan="3"></th>
+          </tr>
+        </tbody>
+      </table>
 
-<div>
-  <% if user == current_user %>
-    <%= link_to edit_user_path(user) do %>
-    <i class="fa-solid fa-user-gear"></i>
-    <% end %>
-  <% else %>
-    <%= link_to edit_user_path(user) do %>
-    <i class="fa-solid fa-user-gear"></i>
-    <% end %>
-  <% end %>
-</div>
+      <div class="row">
+        <% if user == current_user %>
+          <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        <% end %>
+      </div>
 
 
-<h1>New book</h1>
-<%= form_with model: book do |f| %>
-  <label for="book_title">Title</label>
-  <div class="create_box_title">
-    <%= f.text_field :title, autofocus: true, id:"book_title" %>
-  </div>
+      <h1>New book</h1>
+      <%= form_with model: book do |f| %>
+        <label for="book_title">Title</label>
+        <div class="create_box_title">
+          <%= f.text_field :title, autofocus: true, id:"book_title" %>
+        </div>
 
-  <label for="book_body">Opinion</label>
-  <div class="create_box_body">
-    <%= f.text_area :body, autofocus: true, id:"book_body" %>
-  </div>
+        <label for="book_body">Opinion</label>
+        <div class="create_box_body">
+          <%= f.text_area :body, autofocus: true, id:"book_body" %>
+        </div>
 
-  <div class="create_box">
-    <%= f.submit 'Create Book' %>
-  </div>
-
-<% end %>
+        <div class="create_box">
+          <%= f.submit 'Create Book' %>
+        </div>
+      <% end %>
+    </div>

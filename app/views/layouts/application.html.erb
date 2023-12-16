@@ -14,56 +14,57 @@
 
   <body>
     <header>
-      <nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+          <li class="nav-link text-light">
+            <%= link_to "Bookers", root_path %>
+          </li>
           <ul>
-            <div class=""
-            <li>
-              <%= link_to "Bookers", root_path %>
-            </li>
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to user_path(current_user.id) do %>
-                  <i class="fa-solid fa-home"></i>Home
-                <% end %>
-              </li>
-              <li>
-                <%= link_to users_path do %>
-                  <i class="fas fa-users"></i>Users
-                <% end %>
-              </li>
-              <li>
-                <%= link_to books_path do %>
-                  <i class="fas fa-book-open"></i>Books
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i>Log out
-                <% end %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to root_path do %>
-                  <i class="fa-solid fa-home"></i>Home
-                <% end %>
-              </li>
-              <li>
-                <%= link_to about_path do %>
-                  <i class="fas fa-link"></i>About
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_registration_path do%>
-                  <i class="fas fa-user-plus"></i>Sign up
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_session_path do %>
-                  <i class="fas fa-sign-in-alt"></i>Log in
-                <% end %>
-              </li>
-            <% end %>
+            <div class="collapse navbar-collapse">
+              <% if user_signed_in? %>
+                  <li class="nav-link text-light">
+                    <%= link_to user_path(current_user.id) do %>
+                      <i class="fa-solid fa-home"></i>Home
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to users_path do %>
+                      <i class="fas fa-users"></i>Users
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to books_path do %>
+                      <i class="fas fa-book-open"></i>Books
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <i class="fas fa-sign-out-alt"></i>Log out
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li class="nav-link text-light">
+                    <%= link_to root_path do %>
+                      <i class="fa-solid fa-home"></i>Home
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to about_path do %>
+                      <i class="fas fa-link"></i>About
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to new_user_registration_path do%>
+                      <i class="fas fa-user-plus"></i>Sign up
+                    <% end %>
+                  </li>
+                  <li class="nav-link text-light">
+                    <%= link_to new_user_session_path do %>
+                      <i class="fas fa-sign-in-alt"></i>Log in
+                    <% end %>
+                  </li>
+              <% end %>
+            </div>
           </ul>
         </div>
       </nav>
@@ -77,5 +78,8 @@
       <%= yield %>
     </main>
 
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
